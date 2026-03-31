@@ -5,7 +5,7 @@ import asyncio
 from dotenv import load_dotenv
 from helpers.db import create_connection, create_table
 from helpers.close import TicketView
-
+from cogs.panel import PanelView
 load_dotenv()
 discord_token = os.getenv('DISCORD_TOKEN')
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
@@ -13,6 +13,7 @@ bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 @bot.event
 async def on_ready():
     bot.add_view(TicketView())
+    bot.add_view(PanelView(bot))
     await bot.tree.sync()
     print(f'logging in as marvo')
 
