@@ -1,0 +1,17 @@
+{
+    "staffroleid": "1488354263900880957",
+    "panel_style": "buttons",
+
+   "categories": {
+    "ticket": {
+        "name": "Ticket",
+        "description": "Ticket catagory",
+        "welcome_message": "This is the ticket catagory!"
+    },
+    "support": {
+        "name": "Support",
+        "description": "Support catagory",
+        "welcome_message": "This is the support catagory!"
+    }
+   } 
+}
