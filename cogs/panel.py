@@ -17,11 +17,11 @@ class Panel(commands.Cog):
             config = json.load(f)
 
         panel_style = config["panel_style"]
-        panel_categories = config["categories"]
+        panel_catagories = config["categories"]
         view = discord.ui.View()
 
         if panel_style == "buttons":
-            for key, category in panel_categories.items():
+            for key, category in panel_catagories.items():
                 button = discord.ui.Button(
                     label=category["name"],
                     style=discord.ButtonStyle.primary,
@@ -30,7 +30,7 @@ class Panel(commands.Cog):
                 view.add_item(button)
         elif panel_style == "dropdown":
             options = []
-            for key, category in panel_categories.items():
+            for key, category in panel_catagories.items():
                 options.append(discord.SelectOption(
                     label=category["name"],
                     value=key

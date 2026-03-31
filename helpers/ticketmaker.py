@@ -22,7 +22,7 @@ async def create_ticket_channel(interaction: discord.Interaction, key: str, conn
             staff_role: discord.PermissionOverwrite(view_channel=True, send_messages=True, read_message_history=True),
         }
 
-        channel = await guild.create_text_channel(name=f"{key}-{interaction.user.name} - Ticket", overwrites=overwrites)
+        channel = await guild.create_text_channel(name=f"{key}-{interaction.user.name}", overwrites=overwrites)
         await channel.send(category["welcome_message"], view=TicketView())
         
         await interaction.response.send_message(f"Ticket created: {channel.mention}")

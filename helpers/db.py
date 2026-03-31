@@ -1,12 +1,16 @@
 import psycopg                                                                                                        
-from time import time                                                                                               
+from time import time
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 db_params = {
-    "host": "localhost",
-    "dbname": "marvo",
-    "user": "ian"
+    "host": os.getenv("DB_HOST", "localhost"),
+    "dbname": os.getenv("DB_NAME", "marvo"),
+    "user": os.getenv("DB_USER"),
+    "password": os.getenv("DB_PASSWORD")
 }
-
 async def create_connection():
     conn = await psycopg.AsyncConnection.connect(**db_params)
     return conn                                                                                                       
